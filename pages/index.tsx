@@ -37,19 +37,6 @@ const Home: NextPage = () => {
             <h2>wagmi Documentation &rarr;</h2>
             <p>Learn how to interact with Ethereum.</p>
           </a>
-
-          <a
-            className={styles.card}
-            href="https://github.com/rainbow-me/rainbowkit/tree/main/examples"
-          >
-            <h2>RainbowKit Examples &rarr;</h2>
-            <p>Discover boilerplate example RainbowKit projects.</p>
-          </a>
-
-          <a className={styles.card} href="https://nextjs.org/docs">
-            <h2>Next.js Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
         </div>
       </main>
 
