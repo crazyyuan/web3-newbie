@@ -2,6 +2,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import GroupHome from "./group";
 
 const Home: NextPage = () => {
   return (
@@ -28,7 +29,7 @@ const Home: NextPage = () => {
         </p>
 
         <div className={styles.grid}>
-          <a className={styles.card} href="https://rainbowkit.com">
+          <a className={styles.card} href="./group">
             <h2>RainbowKit Documentation &rarr;</h2>
             <p>Learn how to customize your wallet connection flow.</p>
           </a>

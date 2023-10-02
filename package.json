@@ -14,7 +14,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "viem": "~1.10.7",
-    "wagmi": "~1.4.1"
+    "wagmi": "~1.4.1",
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "@mui/material": "latest"
   },
   "devDependencies": {
     "@types/node": "^18.16.12",
