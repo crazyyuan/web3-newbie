@@ -5,9 +5,12 @@ import styles from "../styles/Home.module.css";
 import Box from "@mui/material/Box";
 import { useRouter } from "next/router";
 import { Button, TextField } from "@mui/material";
+import * as React from "react";
 
 const Home: NextPage = () => {
   const router = useRouter();
+
+  const [contract, setContract] = React.useState<string>("");
 
   return (
     <div className={styles.container}>
@@ -39,12 +42,15 @@ const Home: NextPage = () => {
             label=""
             variant="outlined"
             fullWidth={true}
+            onChange={(event) => {
+              setContract(event.target.value);
+            }}
           />
           <Button
             variant="contained"
             sx={{ width: 120 }}
             onClick={() => {
-              router.push(`/group/0x2E742dbC8d79318013eF9eF89381274147c52f34`);
+              router.push(`/group/${contract}`);
             }}
           >
             点击跳转
