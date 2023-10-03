@@ -32,6 +32,8 @@ export default function SimpleContainer() {
   const router = useRouter();
   const account = useAccount();
 
+  const [baseURI, setBaseURI] = React.useState<string>("");
+
   const [owner, setOwner] = React.useState<string>("");
 
   const contractAddress: any = router.query.contract;
@@ -56,6 +58,16 @@ export default function SimpleContainer() {
   useContractRead({
     address: contractAddress,
     abi: contract_abi,
+    functionName: "baseURI",
+    onSuccess(data: any) {
+      console.log("baseURI:", data);
+      setBaseURI(data);
+    },
+  });
+
+  useContractRead({
+    address: contractAddress,
+    abi: contract_abi,
     functionName: "owner",
     onSuccess(data: any) {
       console.log("owner:", data);
@@ -71,6 +83,18 @@ export default function SimpleContainer() {
       console.log("status:", data);
       setStatus(data);
     },
+  });
+
+  const {
+    data: baseURIData,
+    write: writeBaseURI,
+    error: baseURIError,
+    isError: baseURIIsError,
+    isSuccess: baseURISuccess,
+  } = useContractWrite({
+    address: contractAddress,
+    abi: contract_abi,
+    functionName: "setBaseURI",
   });
 
   const {
@@ -155,6 +179,11 @@ export default function SimpleContainer() {
     }
   };
 
+  const handleModifyBaseURI = async () => {
+    console.log("baseURI:", baseURI);
+    writeBaseURI({ args: [baseURI] });
+  };
+
   const handleGenerateAllowList = async () => {
     const value = JSON.parse(allowList);
     console.log("allowList", allowList);
@@ -188,6 +217,33 @@ export default function SimpleContainer() {
         <Box sx={{ marginTop: 5 }}>
           <ConnectButton />
         </Box>
+        {account.address === owner && (
+          <Box
+            display="flex"
+            alignItems="center"
+            gap="20px"
+            sx={{ marginTop: 5, width: 800 }}
+          >
+            <TextField
+              id="outlined-multiline-static"
+              label="BaseURI"
+              defaultValue=""
+              fullWidth={true}
+              value={baseURI}
+              onChange={(event) => {
+                setBaseURI(event.target.value);
+              }}
+            />
+            <Button
+              variant="outlined"
+              onClick={handleModifyBaseURI}
+              sx={{ height: 50 }}
+            >
+              修改 BaseURI
+            </Button>
+          </Box>
+        )}
+
         <Box display="flex" gap="20px" sx={{ marginTop: 5, width: 800 }}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">当前状态</InputLabel>

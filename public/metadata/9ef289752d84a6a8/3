@@ -1,0 +1,11 @@
+{
+	"description": "web3 赛博朋克版杜宾.",
+	"image": "ipfs://bafybeif4esayp2hug65yrawl63y3yey35n44qzilaxrh6knqrqwxw5cmeq",
+	"name": "杜宾",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "3"
+		}
+	]
+}

@@ -1,0 +1,11 @@
+{
+	"description": "web3 赛格朋克版比格.",
+	"image": "ipfs://bafybeibr7wzyeipg4hn4khxrxvdoc2csqxdsm2l3257hy4eqcdpjzckuue",
+	"name": "比格",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "1"
+		}
+	]
+}

@@ -1,0 +1,11 @@
+{
+	"description": "web3 赛博朋克哈士奇.",
+	"image": "ipfs://bafybeiciy5n2n7b6ziufdc74biwgrmmxxlmf6ls2skxaxdluyqt3anohoq",
+	"name": "赛博朋克哈士奇",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "2"
+		}
+	]
+}
