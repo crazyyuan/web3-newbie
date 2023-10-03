@@ -1,0 +1,11 @@
+{
+	"description": "赛博猫猫01.",
+	"image": "ipfs://bafybeian5jsmkgtxrytezzocr3bqcjpv6sc6mbkwgvvy2xhnkvhrrby7ia",
+	"name": "miumiu01",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "5"
+		}
+	]
+}

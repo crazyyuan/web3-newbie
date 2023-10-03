@@ -1,0 +1,11 @@
+{
+	"description": "灰是碳的烬，枯是叶的烬。铁栏杆围起来的右侧像片水域，碳像水，落叶像鱼在水中游动。",
+	"image": "ipfs://bafybeiff4s42x63vc6s6aowa67rsqgghegv5pmhevts5d6flhvpuw7l7iy",
+	"name": "烬",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "2"
+		}
+	]
+}

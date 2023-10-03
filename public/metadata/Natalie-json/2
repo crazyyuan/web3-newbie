@@ -1,0 +1,11 @@
+{
+	"description": "广州塔in cyberpunk style.",
+	"image": "ipfs://bafybeib337kikyi2tlcywmdopr6yekgfbjhk5fggdng5c7vwlt772kvbda",
+	"name": "广州塔2",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "2"
+		}
+	]
+}

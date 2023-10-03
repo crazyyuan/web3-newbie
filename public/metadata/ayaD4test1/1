@@ -1,0 +1,11 @@
+{
+	"description": "web3D4test1_1",
+	"image": "ipfs://bafybeidi66hxbdmkanu4deewwrfapyntufncbunzfja3cz3mry5oycwq64/1.png",
+	"name": "1",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "1"
+		}
+	]
+}
