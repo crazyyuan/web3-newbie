@@ -15,19 +15,24 @@ import {
 
 // @ts-ignore
 import contract_abi = require("../../public/contract_abi.json");
-import { useContractRead, useContractWrite } from "wagmi";
+import { useAccount, useContractRead, useContractWrite } from "wagmi";
 import { useRouter } from "next/router";
-import { Address } from "abitype";
+
+import { MerkleTree } from "merkletreejs";
+import { keccak256, parseEther } from "viem";
 
 const statusList = [
   { name: "等待项目启动", value: 0 },
-  { name: "白名单轮", value: 3 },
+  { name: "白名单轮次", value: 3 },
   { name: "公开发售", value: 1 },
   { name: "发售结束", value: 2 },
 ];
 
 export default function SimpleContainer() {
   const router = useRouter();
+  const account = useAccount();
+
+  const [owner, setOwner] = React.useState<string>("");
 
   const contractAddress: any = router.query.contract;
 
@@ -45,6 +50,16 @@ export default function SimpleContainer() {
     functionName: "totalSupply",
     onSuccess(data) {
       console.log("totalSupply:", data);
+    },
+  });
+
+  useContractRead({
+    address: contractAddress,
+    abi: contract_abi,
+    functionName: "owner",
+    onSuccess(data) {
+      console.log("owner:", data);
+      setOwner(data);
     },
   });
 
@@ -82,6 +97,42 @@ export default function SimpleContainer() {
     functionName: "airdrop",
   });
 
+  const {
+    data: allowlistData,
+    write: writeAllowlist,
+    error: allowlistError,
+    isError: allowlistIsError,
+    isSuccess: allowlistSuccess,
+  } = useContractWrite({
+    address: contractAddress,
+    abi: contract_abi,
+    functionName: "setAllowList",
+  });
+
+  const {
+    data: allowMintData,
+    write: writeAllowMint,
+    error: allowMintError,
+    isError: allowMintIsError,
+    isSuccess: allowMintSuccess,
+  } = useContractWrite({
+    address: contractAddress,
+    abi: contract_abi,
+    functionName: "allowlistMint",
+  });
+
+  const {
+    data: mintData,
+    write: writeMint,
+    error: mintError,
+    isError: mintIsError,
+    isSuccess: mintSuccess,
+  } = useContractWrite({
+    address: contractAddress,
+    abi: contract_abi,
+    functionName: "mint",
+  });
+
   const handleChangeStatus = async (event: { target: { value: any } }) => {
     let {
       target: { value },
@@ -95,12 +146,39 @@ export default function SimpleContainer() {
 
   const handleAirdrop = async () => {
     const value = JSON.parse(airdropList);
-    console.log("value", value);
+
+    if (typeof value === "object") {
+      console.log("airdropList", airdropList);
+      writeAirdrop({ args: [value] });
+    } else {
+      console.log("error", airdropList);
+    }
   };
 
   const handleGenerateAllowList = async () => {
-    const value = JSON.parse(airdropList);
-    console.log("value", value);
+    const value = JSON.parse(allowList);
+    console.log("allowList", allowList);
+    if (typeof value === "object") {
+      writeAllowlist({ args: [value] });
+    } else {
+      console.log("error", allowList);
+    }
+  };
+
+  const handleAllowMint = async () => {
+    console.log("handleAllowMint");
+    try {
+      writeAllowMint({
+        args: [],
+        value: parseEther((0.0005).toString()),
+      });
+    } catch (e) {
+      console.log("error:", e);
+    }
+  };
+
+  const handleMint = async () => {
+    writeMint({ args: [], value: parseEther((0.001).toString()) });
   };
 
   return (
@@ -119,6 +197,7 @@ export default function SimpleContainer() {
               value={status}
               label="status"
               onChange={handleChangeStatus}
+              disabled={account.address !== owner}
             >
               {statusList.map((item, index) => {
                 return (
@@ -129,12 +208,16 @@ export default function SimpleContainer() {
               })}
             </Select>
           </FormControl>
-          <Button variant="outlined" onClick={handleSetStatus}>
+          <Button
+            variant="outlined"
+            onClick={handleSetStatus}
+            disabled={account.address !== owner}
+          >
             修改
           </Button>
         </Box>
 
-        {status === statusList[2].value && (
+        {status === statusList[2].value && account.address === owner && (
           <Box
             display="flex"
             alignItems="center"
@@ -163,7 +246,7 @@ export default function SimpleContainer() {
           </Box>
         )}
 
-        {status === statusList[1].value && (
+        {status === statusList[1].value && account.address === owner && (
           <Box
             display="flex"
             alignItems="center"
@@ -186,8 +269,33 @@ export default function SimpleContainer() {
               variant="outlined"
               onClick={handleGenerateAllowList}
               sx={{ height: 50, width: 120 }}
+              disabled={!(allowList && allowList.length > 0)}
             >
               制作&上传白名单
+            </Button>
+          </Box>
+        )}
+
+        {status === statusList[1].value && (
+          <Box
+            display="flex"
+            alignItems="center"
+            gap="20px"
+            sx={{ marginTop: 5, width: 800 }}
+          >
+            <Box marginRight="10px">
+              <Box
+                textAlign={{ xs: "left", sm: "right" }}
+                sx={{
+                  fontWeight: "bold",
+                  color: "#101828",
+                }}
+              >
+                {"白名单已开放,快来玩吧！"}
+              </Box>
+            </Box>
+            <Button variant="outlined" onClick={handleAllowMint}>
+              Mint
             </Button>
           </Box>
         )}
@@ -210,26 +318,28 @@ export default function SimpleContainer() {
                 {"已经正式发售,快来玩吧！"}
               </Box>
             </Box>
-            <Button variant="outlined">Mint</Button>
+            <Button variant="outlined" onClick={handleMint}>
+              Mint
+            </Button>
           </Box>
         )}
 
-        <Box
-          display="flex"
-          alignItems="center"
-          gap="20px"
-          sx={{ marginTop: 5, width: 800 }}
-        >
-          <Box
-            textAlign={{ xs: "left", sm: "right" }}
-            sx={{
-              fontWeight: "bold",
-              color: "#101828",
-            }}
-          >
-            {"项目已发售完!"}
-          </Box>
-        </Box>
+        {/*<Box*/}
+        {/*  display="flex"*/}
+        {/*  alignItems="center"*/}
+        {/*  gap="20px"*/}
+        {/*  sx={{ marginTop: 5, width: 800 }}*/}
+        {/*>*/}
+        {/*  <Box*/}
+        {/*    textAlign={{ xs: "left", sm: "right" }}*/}
+        {/*    sx={{*/}
+        {/*      fontWeight: "bold",*/}
+        {/*      color: "#101828",*/}
+        {/*    }}*/}
+        {/*  >*/}
+        {/*    {"项目已发售完!"}*/}
+        {/*  </Box>*/}
+        {/*</Box>*/}
       </Container>
     </React.Fragment>
   );
