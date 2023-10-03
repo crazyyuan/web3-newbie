@@ -42,6 +42,9 @@ export default function SimpleContainer() {
     statusList[0].value,
   );
 
+  const [maxSupply, setMaxSupply] = React.useState(0);
+  const [totalSupply, setTotalSupply] = React.useState(0);
+
   const [airdropList, setAirdropList] = React.useState<string>("");
 
   const [allowList, setAllowList] = React.useState<string>("");
@@ -49,9 +52,20 @@ export default function SimpleContainer() {
   useContractRead({
     address: contractAddress,
     abi: contract_abi,
+    functionName: "maxSupply",
+    onSuccess(data: any) {
+      console.log("maxSupply:", data);
+      setMaxSupply(data);
+    },
+  });
+
+  useContractRead({
+    address: contractAddress,
+    abi: contract_abi,
     functionName: "totalSupply",
-    onSuccess(data) {
+    onSuccess(data: any) {
       console.log("totalSupply:", data);
+      setTotalSupply(data);
     },
   });
 
@@ -72,6 +86,16 @@ export default function SimpleContainer() {
     onSuccess(data: any) {
       console.log("owner:", data);
       setOwner(data);
+    },
+  });
+
+  useContractRead({
+    address: contractAddress,
+    abi: contract_abi,
+    functionName: "maxSupply",
+    onSuccess(data: any) {
+      console.log("maxSupply:", data);
+      setStatus(data);
     },
   });
 
@@ -217,12 +241,22 @@ export default function SimpleContainer() {
         <Box sx={{ marginTop: 5 }}>
           <ConnectButton />
         </Box>
-        {account.address === owner && (
+        {
           <Box
             display="flex"
             alignItems="center"
             gap="20px"
-            sx={{ marginTop: 5, width: 800 }}
+            sx={{ marginTop: 2, width: 800 }}
+          >
+            <InputLabel>{`最大供应量:${maxSupply} 已铸造数量:${totalSupply}`}</InputLabel>
+          </Box>
+        }
+        {
+          <Box
+            display="flex"
+            alignItems="center"
+            gap="20px"
+            sx={{ marginTop: 3, width: 800 }}
           >
             <TextField
               id="outlined-multiline-static"
@@ -242,7 +276,7 @@ export default function SimpleContainer() {
               修改 BaseURI
             </Button>
           </Box>
-        )}
+        }
 
         <Box display="flex" gap="20px" sx={{ marginTop: 5, width: 800 }}>
           <FormControl fullWidth>
