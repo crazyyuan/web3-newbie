@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import fs from "fs/promises";
 
-export default async function GET(req: NextRequest, res: NextResponse) {
+export default async function GET(req: any, res: any) {
   const { group, id } = req.query;
   try {
     // 读取本地文件

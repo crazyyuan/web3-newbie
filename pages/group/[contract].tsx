@@ -29,7 +29,7 @@ const statusList = [
 export default function SimpleContainer() {
   const router = useRouter();
 
-  const contractAddress: string = router.query.contract;
+  const contractAddress: any = router.query.contract;
 
   const [status, setStatus] = React.useState<number | null>(
     statusList[0].value,
