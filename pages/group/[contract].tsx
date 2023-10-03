@@ -57,7 +57,7 @@ export default function SimpleContainer() {
     address: contractAddress,
     abi: contract_abi,
     functionName: "owner",
-    onSuccess(data) {
+    onSuccess(data: any) {
       console.log("owner:", data);
       setOwner(data);
     },
