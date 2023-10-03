@@ -4,6 +4,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Box from "@mui/material/Box";
 import { useRouter } from "next/router";
+import { Button, TextField } from "@mui/material";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -22,52 +23,38 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <ConnectButton />
 
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "20px 17px",
-            width: "370px",
-            height: "120px",
-            mt: "30px",
-            background: "#FFFFFF",
-            border: "0.5px solid #D0D5DD",
-            borderRadius: "6px",
-            cursor: "pointer",
-            gap: "50px",
-          }}
-          onClick={() => {
-            router.push(`/group/0x2E742dbC8d79318013eF9eF89381274147c52f34`);
-          }}
-        ></Box>
-
         <h1 className={styles.title}>
           Welcome to <a href="">Web3 Newbie</a>
         </h1>
 
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a className={styles.card} href="./group">
-            <h2>RainbowKit Documentation &rarr;</h2>
-            <p>Learn how to customize your wallet connection flow.</p>
-          </a>
-
-          <a className={styles.card} href="https://wagmi.sh">
-            <h2>wagmi Documentation &rarr;</h2>
-            <p>Learn how to interact with Ethereum.</p>
-          </a>
-        </div>
+        <Box
+          display="flex"
+          alignItems="center"
+          gap="20px"
+          sx={{ marginTop: 2, width: 500 }}
+        >
+          <TextField
+            id="outlined-basic"
+            placeholder={"请输入 NFT 合约地址"}
+            label=""
+            variant="outlined"
+            fullWidth={true}
+          />
+          <Button
+            variant="contained"
+            sx={{ width: 120 }}
+            onClick={() => {
+              router.push(`/group/0x2E742dbC8d79318013eF9eF89381274147c52f34`);
+            }}
+          >
+            点击跳转
+          </Button>
+        </Box>
       </main>
 
       <footer className={styles.footer}>
-        <a href="https://rainbow.me" rel="noopener noreferrer" target="_blank">
-          Made with ❤️ by your frens at 🌈
+        <a href="https://lxdao.io" rel="noopener noreferrer" target="_blank">
+          Made with ❤️ by web3 women newbie
         </a>
       </footer>
     </div>
