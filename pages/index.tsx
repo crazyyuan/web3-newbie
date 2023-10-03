@@ -2,9 +2,12 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import GroupHome from "./group";
+import Box from "@mui/material/Box";
+import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
+  const router = useRouter();
+
   return (
     <div className={styles.container}>
       <Head>
@@ -18,6 +21,27 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <ConnectButton />
+
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "20px 17px",
+            width: "370px",
+            height: "120px",
+            mt: "30px",
+            background: "#FFFFFF",
+            border: "0.5px solid #D0D5DD",
+            borderRadius: "6px",
+            cursor: "pointer",
+            gap: "50px",
+          }}
+          onClick={() => {
+            router.push(`/group/0x2E742dbC8d79318013eF9eF89381274147c52f34`);
+          }}
+        ></Box>
 
         <h1 className={styles.title}>
           Welcome to <a href="">Web3 Newbie</a>

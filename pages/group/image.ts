@@ -5,13 +5,13 @@ import path from "path";
 export default async function GET(req: NextApiRequest, res: NextApiResponse) {
   try {
     // 读取本地图片文件的路径
-    const filePath = path.join(process.cwd(), "public/images/map.jpg");
+    const filePath = path.join(process.cwd(), "public/metadata/map.jpg");
 
     // 读取图片文件内容
     const fileContent = await fs.readFile(filePath);
 
     // 设置响应头，指定返回的内容类型为图片
-    res.setHeader("Content-Type", "image/jpeg");
+    res.setHeader("Content-Type", "application/json");
 
     // 将图片文件内容返回
     res.status(200).end(fileContent);

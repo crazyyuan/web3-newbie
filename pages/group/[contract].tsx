@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import {
-  Autocomplete,
   Button,
   InputLabel,
   MenuItem,
@@ -17,6 +16,8 @@ import {
 // @ts-ignore
 import contract_abi = require("../../public/contract_abi.json");
 import { useContractRead, useContractWrite } from "wagmi";
+import { useRouter } from "next/router";
+import { Address } from "abitype";
 
 const statusList = [
   { name: "等待项目启动", value: 0 },
@@ -26,6 +27,10 @@ const statusList = [
 ];
 
 export default function SimpleContainer() {
+  const router = useRouter();
+
+  const contractAddress: string = router.query.contract;
+
   const [status, setStatus] = React.useState<number | null>(
     statusList[0].value,
   );
@@ -35,7 +40,7 @@ export default function SimpleContainer() {
   const [allowList, setAllowList] = React.useState<string>("");
 
   useContractRead({
-    address: process.env.NEXT_PUBLIC_CONTRACT,
+    address: contractAddress,
     abi: contract_abi,
     functionName: "totalSupply",
     onSuccess(data) {
@@ -44,7 +49,7 @@ export default function SimpleContainer() {
   });
 
   useContractRead({
-    address: process.env.NEXT_PUBLIC_CONTRACT,
+    address: contractAddress,
     abi: contract_abi,
     functionName: "status",
     onSuccess(data: any) {
@@ -60,7 +65,7 @@ export default function SimpleContainer() {
     isError,
     isSuccess,
   } = useContractWrite({
-    address: process.env.NEXT_PUBLIC_CONTRACT,
+    address: contractAddress,
     abi: contract_abi,
     functionName: "setStatus",
   });
@@ -72,7 +77,7 @@ export default function SimpleContainer() {
     isError: airdropIsError,
     isSuccess: airdropSuccess,
   } = useContractWrite({
-    address: process.env.NEXT_PUBLIC_CONTRACT,
+    address: contractAddress,
     abi: contract_abi,
     functionName: "airdrop",
   });
