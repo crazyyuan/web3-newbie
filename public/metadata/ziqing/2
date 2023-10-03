@@ -1,0 +1,11 @@
+{
+	"description": "头上簪花的女神",
+	"image": "ipfs://bafybeiaha7pgsipbtbpr2dzznwo47u5lacdc6uwncsv3ukydvdawht2q6a",
+	"name": "花神",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "2"
+		}
+	]
+}

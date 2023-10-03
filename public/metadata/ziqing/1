@@ -1,0 +1,11 @@
+{
+	"description": "撒金幣的飛豬",
+	"image": "ipfs://bafybeiax5maudgioojjvmtkb6k3rfr3d4qmbke4jqinldezqifrraw7kme",
+	"name": "撒金幣的飛豬",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "1"
+		}
+	]
+}

@@ -1,0 +1,11 @@
+{
+	"description": "仙子生活的地方",
+	"image": "ipfs://bafybeihqkezt5i4dhkcfkcfljpjfi2w3myx7aegru3wav6pconj7yt33yy",
+	"name": "wonderland",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "3"
+		}
+	]
+}
