@@ -1,0 +1,11 @@
+{
+	"description": "Drawing.",
+	"image": "ipfs://QmSnNZTxTvf9wKYWxzCgZtTYYmerrRvMBcj78PwnHmRhh7",
+	"name": "Bedroom",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "1"
+		}
+	]
+}

@@ -1,0 +1,11 @@
+{
+	"description": "Drawing.",
+	"image": "ipfs://QmXujeBzEKvP3c8MPsjFATwzmYuvc9McMW1oRVqxD42dw4",
+	"name": "Astronauts",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "3"
+		}
+	]
+}

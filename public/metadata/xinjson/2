@@ -1,0 +1,11 @@
+{
+	"description": "Drawing.",
+	"image": "ipfs://QmRtFWiXSdQVwQdUfG9bT1eiJfExDkF2JLQw7RBPtaFkBc",
+	"name": "Parkohur",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "2"
+		}
+	]
+}
