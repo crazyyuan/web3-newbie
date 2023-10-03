@@ -1,0 +1,11 @@
+{
+	"description": "web3 丹语的小卖部",
+	"image": "ipfs://bafybeihzt5frjzkmkpv3imwblemqmkwhezljmxiya4undpmuac2czy76ba.png",
+	"name": "小小甜心的女儿",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "5"
+		}
+	]
+}

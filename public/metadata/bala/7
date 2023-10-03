@@ -1,0 +1,11 @@
+{
+	"description": "seventhday",
+	"image": "ipfs://bafybeiee2izhnbou763wmwyptsdyrjitsytatflfn3brxzqvksfrepsdcu/7.png",
+	"name": "seventhday of birth",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "1"
+		}
+	]
+}

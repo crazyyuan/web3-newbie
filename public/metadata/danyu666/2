@@ -1,0 +1,11 @@
+{
+	"description": "web3 丹语小卖部",
+	"image": "ipfs://bafybeig2ghuilbq2uqfla3vwdmzg7riltb4fsblnqirnrzka4o5zb2ru7i.jpg",
+	"name": "佛系冰棍2",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "2"
+		}
+	]
+}

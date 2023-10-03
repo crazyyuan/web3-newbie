@@ -1,0 +1,11 @@
+{
+	"description": "Cyberpunkcattribe",
+	"image": "ipfs://bafybeiarbe2ay7v5xkvrc5iwmoucfbigjwrrvso4z64hhdidpl5tmypgtu",
+	"name": "catsin",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "7"
+		}
+	]
+}

@@ -1,0 +1,11 @@
+{
+	"description": "Lake.",
+	"image": "ipfs://bafybeid4cb7j2uuiuzgavfmdl5bt7xst2xbs5hqteazykhblamu4lnjsde",
+	"name": "Lake",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "3"
+		}
+	]
+}

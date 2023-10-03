@@ -1,0 +1,11 @@
+{
+	"description": "Cyberpunkcattribe",
+	"image": "ipfs://bafybeicaujepbxwduteuxnp6k7i46gcwfgjl4i2jri3nimze65b62mj6ta",
+	"name": "catmaster",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "3"
+		}
+	]
+}

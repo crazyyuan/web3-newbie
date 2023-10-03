@@ -1,0 +1,11 @@
+{
+	"description": "ocean2.",
+	"image": "ipfs://bafybeidrinnnjitokzvutzvu5m5fy7vwll2elmqn2zycyptacbzd66bsgu",
+	"name": "ocean 2",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "2"
+		}
+	]
+}

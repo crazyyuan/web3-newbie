@@ -1,0 +1,11 @@
+{
+	"description": "thirdday",
+	"image": "ipfs://bafybeiee2izhnbou763wmwyptsdyrjitsytatflfn3brxzqvksfrepsdcu/3.png",
+	"name": "thirday of birth",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "1"
+		}
+	]
+}

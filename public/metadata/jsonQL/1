@@ -1,0 +1,11 @@
+{
+	"description": "Eiffel tower.",
+	"image": "ipfs://bafybeigqqor7jdcgu2pur32enwczmuomu6njpclv4ajh3n2tbfpf3l6zdq",
+	"name": "Eiffel tower",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "1"
+		}
+	]
+}

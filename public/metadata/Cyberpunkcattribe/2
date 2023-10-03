@@ -1,0 +1,11 @@
+{
+	"description": "Cyberpunkcattribe",
+	"image": "ipfs://bafybeihghfmooqqvmdbz6gc2wxc2n2vwda4u3vo6cr7rmqpbwehmpudgi4",
+	"name": "catluna",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "2"
+		}
+	]
+}

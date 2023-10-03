@@ -1,0 +1,11 @@
+{
+	"description": "ocean.",
+	"image": "ipfs://bafybeidrdgyp6ave4xe6a6p45w7k3xdlbrpf6orcelsbrjcw6y7bazwyby",
+	"name": "ocean 1",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "1"
+		}
+	]
+}

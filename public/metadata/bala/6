@@ -1,0 +1,11 @@
+{
+	"description": "sixthday",
+	"image": "ipfs://bafybeiee2izhnbou763wmwyptsdyrjitsytatflfn3brxzqvksfrepsdcu/6.png",
+	"name": "sixthday of birth",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "1"
+		}
+	]
+}

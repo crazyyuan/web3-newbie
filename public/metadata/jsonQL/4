@@ -1,0 +1,11 @@
+{
+	"description": "Sunflower.",
+	"image": "ipfs://bafybeichcjwcvhd6wdjy7j6smibpsklum7a74nxd5le4bogbs65n5shxri",
+	"name": "Sunflower",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "4"
+		}
+	]
+}

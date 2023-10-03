@@ -1,0 +1,11 @@
+{
+	"description": "Bridge.",
+	"image": "ipfs://bafybeiby32ok4mygm276es5gm37hdpigdlrzszgm72atg5bi65ssiidzra",
+	"name": "Bridge",
+	"attributes": [
+		{
+			"trait_type": "Number",
+			"value": "2"
+		}
+	]
+}
